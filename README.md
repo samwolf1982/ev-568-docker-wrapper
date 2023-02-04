@@ -1,6 +1,6 @@
 https://razzlejs.org/getting-started
 
-#Заготовка для php проектов в докере
+#Заготовка для PHP проєктів в єкосистемі докер
 
 ## docker env
 https://docs.docker.com/compose/env-file/
