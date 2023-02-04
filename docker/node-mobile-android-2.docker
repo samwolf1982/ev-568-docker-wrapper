@@ -1,0 +1,33 @@
+FROM beevelop/android-nodejs
+
+ENV CORDOVA_VERSION 10.0.0
+WORKDIR "/tmp"
+RUN npm i -g --unsafe-perm cordova@${CORDOVA_VERSION} && \
+    cordova -v && \
+    cd /tmp && \
+    cordova create myApp com.myCompany.myApp myApp && \
+    cd myApp && \
+    cordova plugin add cordova-plugin-camera --save && \
+    cordova platform add android --save && \
+    cordova requirements android && \
+    cordova build android --verbose && \
+    rm -rf /tmp/myApp
+
+RUN npm install -g plugman
+
+RUN apt-get update
+RUN npm install -g laravel-echo-server
+RUN apt-get install -y git curl  zsh
+RUN echo "fs.inotify.max_user_instances=524288" >> /etc/sysctl.conf
+RUN echo "fs.inotify.max_user_watches=524288" >> /etc/sysctl.conf
+RUN echo "fs.inotify.max_queued_events=524288" >> /etc/sysctl.conf
+RUN npm install -g create-razzle-app
+RUN npm install pm2@latest -g
+RUN npm install -g cordova-gen-icon
+RUN apt-get -y install imagemagick
+
+USER root
+
+
+WORKDIR /home/source
+
