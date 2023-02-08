@@ -56,9 +56,9 @@ services:
 #        source: ./app-front/www
 #        target: /var/www
         
-      - type: bind
-        source: ./app-front/stats
-        target: /tmp/stats
+#      - type: bind
+#        source: ./app-front/stats
+#        target: /tmp/stats
     
 #    ports:
 #      - "3001:3001"
