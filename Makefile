@@ -88,6 +88,10 @@ cli-node-socket:
 cli-mysql:
 	docker-compose exec mysql /bin/bash
 
+## консоль postgress
+cli-postgres:
+	docker-compose exec postgres /bin/bash
+
 
 
 

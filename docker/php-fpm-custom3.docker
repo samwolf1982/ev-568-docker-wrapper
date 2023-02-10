@@ -30,7 +30,7 @@ RUN echo "memory_limit=250M" > $PHP_INI_DIR/conf.d/memory-limit.ini
 
 #RUN apt-get install -y npm
 #RUN npm install -g yarn
-
+RUN docker-php-ext-install pdo_pgsql
 ##MailHog
 RUN wget https://github.com/mailhog/mhsendmail/releases/download/v0.2.0/mhsendmail_linux_amd64
 RUN chmod +x mhsendmail_linux_amd64

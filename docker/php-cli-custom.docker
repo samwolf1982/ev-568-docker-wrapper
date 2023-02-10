@@ -38,6 +38,8 @@ RUN mkdir -p ioncube   && tar -xf ioncube.tar.gz -C ioncube --strip-components=1
 RUN mv ioncube/ioncube_loader_lin_7.4.so $(php -r "echo ini_get('extension_dir');")/ioncube_loader_lin_7.4.so  && rm -r ioncube
 RUN echo "zend_extension = '$(php -r "echo ini_get('extension_dir');")/ioncube_loader_lin_7.4.so'" > $PHP_INI_DIR/conf.d/00-ioncube.ini
 
+RUN docker-php-ext-install pdo_pgsql
+
 #RUN apt-get install -y npm
 #RUN npm install -g yarn
 
